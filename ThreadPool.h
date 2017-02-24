@@ -27,6 +27,7 @@ private:
     // synchronization
     std::mutex queue_mutex;
     std::condition_variable condition;
+    ing  threadtotals;
     bool stop;
 };
  
@@ -34,6 +35,7 @@ private:
 inline ThreadPool::ThreadPool(size_t threads)
     :   stop(false)
 {
+    threadtotals=0;
     for(size_t i = 0;i<threads;++i)
         workers.emplace_back(
             [this]
