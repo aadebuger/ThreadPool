@@ -55,6 +55,7 @@ inline ThreadPool::ThreadPool(size_t threads)
                     }
 
                     task();
+                    threadtotals++;
                 }
             }
         );
